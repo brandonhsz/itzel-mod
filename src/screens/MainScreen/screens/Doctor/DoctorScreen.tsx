@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MenuScreen from './screens/MenuScreen/MenuScreen';
@@ -10,13 +10,13 @@ const Stack = createNativeStackNavigator();
 
 export default function DoctorScreen() {
     return (
-        <>
+        <View style={{ flex: 1 }}>
             <Stack.Navigator>
                 <Stack.Screen name="menu" component={MenuScreen} options={{ ...headlessOptions }} />
                 <Stack.Screen name="record" component={RecordScreen} options={{ ...headlessOptions }} />
                 <Stack.Screen name="alta" component={AltaScreen} options={{ ...headlessOptions }} />
             </Stack.Navigator>
-        </>
+        </View>
     )
 }
 

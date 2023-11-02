@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DoctorScreen from './screens/Doctor/DoctorScreen';
 import PatientScreen from './screens/Patient/PatientScreen';
