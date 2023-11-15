@@ -3,21 +3,29 @@ import React from "react";
 
 export default function Card({ text, onPress }: any) {
   return (
-    <TouchableOpacity onPress={onPress} style={styles.card}>
-      <Text>{text}</Text>
-    </TouchableOpacity>
+    <TouchableOpacity
+        style={styles.card}
+        onPress={onPress}
+      >
+        <Text style={styles.text}>{text}</Text>
+      </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "white",
+    backgroundColor: "#040624",
     borderWidth: 1,
     width: "50%",
-    padding: 50,
+    paddingVertical: 25,
     margin: 10,
-    borderRadius: 20,
-    elevation: 5,
+    borderRadius: 40,
+    elevation: 10,
     alignItems: "center",
+  },
+  text: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "white",
   },
 });

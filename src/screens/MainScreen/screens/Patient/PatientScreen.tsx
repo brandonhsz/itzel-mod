@@ -2,23 +2,30 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import Card from "../../../../components/Card/Card";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import MenuScreen from "./screens/MenuScreen";
+import DiagnosticoScreen from "./screens/DiagnosticoScreen";
+import { headlessOptions } from "../../../../config";
+
+const Stack = createNativeStackNavigator();
 
 export default function PatientScreen({ route }: any) {
   const navigation = useNavigation<any>();
 
-  const cards = [
-    "Datos",
-    "Historia Clinica",
-    "Cuestionario",
-    "Señales",
-    "Diagnostico",
-  ];
-
   return (
-    <View style={styles.container}>
-      {cards.map((card, index) => (
-        <Card key={index} text={card} />
-      ))}
+    <View style={{ flex: 1 }}>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="menu"
+          component={MenuScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          options={{ ...headlessOptions }}
+          name="diagnostico"
+          component={DiagnosticoScreen}
+        />
+      </Stack.Navigator>
     </View>
   );
 }

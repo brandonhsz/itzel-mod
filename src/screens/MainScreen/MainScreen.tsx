@@ -12,12 +12,12 @@ export default function MainScreen() {
   return (
     <View style={{ flex: 1 }}>
       <Header name="Brandon" />
-      <Stack.Navigator>
-        <Stack.Screen
+      <Stack.Navigator initialRouteName="patient">
+        {/* <Stack.Screen
           name="doctor"
           component={DoctorScreen}
           options={{ ...headlessOptions }}
-        />
+        /> */}
         <Stack.Screen
           name="patient"
           component={PatientScreen}
