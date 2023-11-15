@@ -23,8 +23,8 @@ const theme = {
 
 export default function App() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <PaperProvider theme={theme}>
+    <PaperProvider theme={theme}>
+      <SafeAreaView style={{ flex: 1 }}>
         <NavigationContainer>
           <Stack.Navigator>
             <Stack.Screen
@@ -44,8 +44,8 @@ export default function App() {
             />
           </Stack.Navigator>
         </NavigationContainer>
-      </PaperProvider>
-    </SafeAreaView>
+      </SafeAreaView>
+    </PaperProvider>
   );
 }
 

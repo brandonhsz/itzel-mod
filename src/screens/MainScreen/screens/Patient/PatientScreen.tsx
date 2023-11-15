@@ -10,6 +10,7 @@ import { headlessOptions } from "../../../../config";
 const Stack = createNativeStackNavigator();
 
 export default function PatientScreen({ route }: any) {
+  console.log("patient");
   const navigation = useNavigation<any>();
 
   return (
