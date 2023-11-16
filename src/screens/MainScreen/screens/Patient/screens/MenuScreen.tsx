@@ -7,7 +7,7 @@ export default function MenuScreen() {
   const navigation = useNavigation<any>();
 
   const cards = [
-    { text: "Datos", onPress: () => console.log("hola") },
+    { text: "Datos", onPress: () => navigation.navigate("datos") },
     { text: "Historia Clinica", onPress: () => console.log("hola") },
     { text: "Cuestionario", onPress: () => console.log("hola") },
     { text: "Señales", onPress: () => console.log("hola") },

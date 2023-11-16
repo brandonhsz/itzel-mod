@@ -11,11 +11,11 @@ import MenuScreen from "./screens/MenuScreen/MenuScreen";
 import { headlessOptions } from "../../../../config";
 import RecordScreen from "./screens/RecordScreen/RecordScreen";
 import AltaScreen from "./screens/AltaScreen/AltaScreen";
+import { useUserStore } from "../../../../state/userState";
 
 const Stack = createNativeStackNavigator();
 
 export default function DoctorScreen() {
-  console.log("doctor");
   return (
     <View style={{ flex: 1 }}>
       <Stack.Navigator>

@@ -10,6 +10,7 @@ import {
 } from "react-native-paper";
 import RegisterScreen from "./src/screens/RegisterScreen/RegisterScreen";
 import { headlessOptions } from "./src/config";
+import Header from "./src/screens/MainScreen/screens/Doctor/components/Header/Header";
 
 const Stack = createNativeStackNavigator();
 const theme = {
@@ -39,7 +40,7 @@ export default function App() {
             />
             <Stack.Screen
               name="main"
-              options={{ ...headlessOptions }}
+              options={{ header: () => <Header /> }}
               component={MainScreen}
             />
           </Stack.Navigator>

@@ -11,7 +11,6 @@ const Stack = createNativeStackNavigator();
 export default function MainScreen() {
   return (
     <View style={{ flex: 1 }}>
-      <Header name="Brandon" />
       <Stack.Navigator initialRouteName="patient">
         <Stack.Screen
           name="doctor"

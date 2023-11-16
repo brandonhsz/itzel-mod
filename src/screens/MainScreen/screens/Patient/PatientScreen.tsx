@@ -6,11 +6,12 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MenuScreen from "./screens/MenuScreen";
 import DiagnosticoScreen from "./screens/DiagnosticoScreen";
 import { headlessOptions } from "../../../../config";
+import DatosScreen from "./screens/DatosScreen";
 
 const Stack = createNativeStackNavigator();
 
 export default function PatientScreen({ route }: any) {
-  console.log("patient");
+  console.log(route.params.patient);
   const navigation = useNavigation<any>();
 
   return (
@@ -25,6 +26,11 @@ export default function PatientScreen({ route }: any) {
           options={{ ...headlessOptions }}
           name="diagnostico"
           component={DiagnosticoScreen}
+        />
+        <Stack.Screen
+          options={{ ...headlessOptions }}
+          name="datos"
+          component={DatosScreen}
         />
       </Stack.Navigator>
     </View>

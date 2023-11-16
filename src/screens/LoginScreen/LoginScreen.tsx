@@ -3,11 +3,13 @@ import { TextInput, Button, useTheme } from "react-native-paper";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { api } from "../../constants/api";
+import { useUserStore } from "../../state/userState";
 
 export default function LoginScreen() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [error, setError] = React.useState(false);
+  const setUser = useUserStore((state) => state.setUser);
   const handleLogin = async () => {
     if (email === "" || password === "") {
       setError(true);
@@ -19,6 +21,8 @@ export default function LoginScreen() {
         password,
       });
       setError(false);
+      console.log(response.data);
+      setUser(response.data);
       navigation.navigate("main", { screen: response.data.userType });
     } catch (e) {
       console.log(e);

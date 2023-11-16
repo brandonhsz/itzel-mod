@@ -6,27 +6,38 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { TouchableRipple, useTheme } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
+import { api } from "../../../../../../constants/api";
+import {
+  usePatientStore,
+  useUserStore,
+} from "../../../../../../state/userState";
 
 export default function RecordScreen() {
-  const patientList = [
-    { name: "Brandon", age: 23 },
-    { name: "Leo", age: 23 },
-    { name: "Itzel", age: 23 },
-    { name: "Meztle", age: 23 },
-    { name: "Brandon", age: 23 },
-    { name: "Leo", age: 23 },
-  ];
+  const [patientList, setPatientList] = React.useState<any>([]);
+
   const theme = useTheme();
   const navigation = useNavigation<any>();
+  const user = useUserStore((state) => state.user);
+  const setPatient = usePatientStore((state) => state.setPatient);
+
+  const fetchPatients = async () => {
+    const response = await api.get(`/patient/many/${user.id}`, {});
+    console.log(response.data);
+    setPatientList(response.data);
+  };
+  useEffect(() => {
+    fetchPatients();
+  }, []);
   return (
     <ScrollView style={{ flex: 1, marginHorizontal: 20, marginVertical: 40 }}>
-      {patientList.map((patient, index) => (
+      {patientList.map((patient: any, index: number) => (
         <TouchableRipple
           rippleColor={theme.colors.primary + "CC"}
           onPress={() => {
+            setPatient(patient);
             navigation.navigate("patient", { patient });
           }}
           style={styles.card}
