@@ -9,7 +9,10 @@ export default function MenuScreen() {
   const cards = [
     { text: "Datos", onPress: () => navigation.navigate("datos") },
     { text: "Historia Clinica", onPress: () => console.log("hola") },
-    { text: "Cuestionario", onPress: () => console.log("hola") },
+    {
+      text: "Cuestionario",
+      onPress: () => navigation.navigate("cuestionario"),
+    },
     { text: "Señales", onPress: () => console.log("hola") },
     { text: "Diagnostico", onPress: () => navigation.navigate("diagnostico") },
   ];

@@ -7,11 +7,11 @@ import MenuScreen from "./screens/MenuScreen";
 import DiagnosticoScreen from "./screens/DiagnosticoScreen";
 import { headlessOptions } from "../../../../config";
 import DatosScreen from "./screens/DatosScreen";
+import CuestionarioScreen from "./screens/CuestionarioScreen";
 
 const Stack = createNativeStackNavigator();
 
 export default function PatientScreen({ route }: any) {
-  console.log(route.params.patient);
   const navigation = useNavigation<any>();
 
   return (
@@ -31,6 +31,11 @@ export default function PatientScreen({ route }: any) {
           options={{ ...headlessOptions }}
           name="datos"
           component={DatosScreen}
+        />
+        <Stack.Screen
+          options={{ ...headlessOptions }}
+          name="cuestionario"
+          component={CuestionarioScreen}
         />
       </Stack.Navigator>
     </View>
